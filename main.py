@@ -1,14 +1,13 @@
-# Python Variables and Data Types
+# Python Functions
 
-name = "Jagath"
-age = 23
-is_developer = True
+# function definition
+def greet_user(name):
+  return f"Hello, {name}! Welcome to Python."
 
-print("Name: ", name)
-print("Age: ", age)
-print("Is Developer: ", is_developer)
+# calling the function
+message = greet_user("Jagath")
 
+print(message)
 
-# "text" -> string
-# 23 -> integer
-# True/False -> boolean
+# def is used to define a function
+# f" " is formatted string
