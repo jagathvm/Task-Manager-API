@@ -1,11 +1,9 @@
-# Start Flask REST API
-
 from flask import Flask, request
-
 from database.db import get_db_connection
 
 app = Flask(__name__)
 
+# Create Home Route (GET /)
 @app.route('/')
 def home():
   return {"message": "Task Manager API is running !"}
