@@ -23,8 +23,9 @@ class User:
 
 class Person:
   def __init__(self, name, age, profession):
-    self.name = name,
-    self.age = age,
+    # bug fix
+    self.name = name
+    self.age = age
     self.profession = profession
 
   def to_dict(self):
