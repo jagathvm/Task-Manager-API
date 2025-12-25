@@ -1,5 +1,5 @@
 # Start Flask REST API
-# Create User API (POST /users)
+
 from flask import Flask, request
 
 from database.db import get_db_connection
@@ -10,6 +10,7 @@ app = Flask(__name__)
 def home():
   return {"message": "Task Manager API is running !"}
 
+# Create User API (POST /users)
 @app.route('/users', methods=["POST"])
 def create_user():
     data = request.get_json()
@@ -45,6 +46,43 @@ def create_user():
 
     finally:
        conn.close()
+
+# POST -	send data to server
+# request.get_json() -	read JSON body
+# SQL INSERT	- add record into table
+# validation	- check user input
+# HTTP codes	- 201 success, 400 bad input
+# try–except	- error handling
+# finally	- always closes DB
+
+# Get all users (GET /users)
+@app.route('/users', methods=["GET"])
+def get_users():
+   conn = get_db_connection()
+   cursor = conn.cursor()
+
+   cursor.execute("SELECT id, name, email FROM users")
+   rows = cursor.fetchall()
+
+   users = []
+
+   for row in rows:
+      users.append({
+         "id": row["id"],
+         "name": row["name"],
+         "email": row["email"]
+      })
+
+   conn.close()
+
+   return {"users": users}, 200
+
+# methods=["GET"] - Only accepts GET requests
+# cursor.execute() -	runs SQL query
+# fetchall() -	returns all rows
+# for row in rows -	loop through SQL rows
+# row["name"]	- dictionary-like access
+# return {"users": users} -	send JSON response
 
 if __name__ == "__main__":
   app.run(debug=True)
