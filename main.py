@@ -1,13 +1,7 @@
-# Python Functions
+# Using Python Classes and Objects
 
-# function definition
-def greet_user(name):
-  return f"Hello, {name}! Welcome to Python."
+from models.user import User
 
-# calling the function
-message = greet_user("Jagath")
+user1 = User(1, "Jagath", "17jagathvm@gmail.com")
 
-print(message)
-
-# def is used to define a function
-# f" " is formatted string
+print(user1.to_dict())
