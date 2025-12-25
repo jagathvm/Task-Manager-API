@@ -1,15 +1,7 @@
-# Using Python Classes and Objects
+# Initialize database and create tables
 
-from models.user import User
+from database.db import create_tables
 
-user1 = User(1, "Jagath", "17jagathvm@gmail.com")
-
-# print(user1.to_dict())
-
-# import the new class defined.
-
-from models.user import Person
-
-person1 = Person("Jagath", 24, "Developer")
-
-print(person1.to_dict())
+if __name__ == "__main__":
+  create_tables()
+  print("Database and tables successfully.")
