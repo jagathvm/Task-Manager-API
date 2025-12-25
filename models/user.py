@@ -18,3 +18,14 @@ class User:
 # self → refers to current object
 # attributes: user_id, name, email
 # to_dict() → converts object to dictionary (VERY useful for APIs)
+
+# defining new class
+
+class Person:
+  def __init__(self, name, age, profession):
+    self.name = name,
+    self.age = age,
+    self.profession = profession
+
+  def to_dict(self):
+    return f"{self.name} is a {self.profession} of age {self.age}"
