@@ -9,7 +9,7 @@ def home():
   return {"message": "Task Manager API is running !"}
 
 # Create User API (POST /users)
-@app.route('/users', methods=["POST"])
+@app.route('/user', methods=["POST"])
 def create_user():
     data = request.get_json()
 
@@ -83,7 +83,7 @@ def get_users():
 # return {"users": users} -	send JSON response
 
 # Create Task API (POST /tasks)
-@app.route("/tasks", methods=["POST"])
+@app.route("/task", methods=["POST"])
 def create_task():
    data = request.get_json()
 
