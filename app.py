@@ -134,5 +134,28 @@ def create_task():
 # 404 Not Found -	resource missing
 # 500	- server / DB errors
 
+# Get all tasks (GET /tasks)
+@app.route('/tasks', methods=["GET"])
+def get_tasks():
+   conn = get_db_connection()
+   cursor = conn.cursor()
+
+   cursor.execute("SELECT id, user_id, title, status FROM tasks")
+   rows = cursor.fetchall()
+
+   tasks = []
+
+   for row in rows:
+      tasks.append({
+         "id": row["id"],
+         "user_id": row["user_id"],
+         "title": row["title"],
+         "status": row["status"]
+      })
+
+   conn.close()
+
+   return {"tasks": tasks}, 200
+
 if __name__ == "__main__":
   app.run(debug=True)
