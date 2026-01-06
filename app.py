@@ -157,5 +157,49 @@ def get_tasks():
 
    return {"tasks": tasks}, 200
 
+# Update a task (PUT /tasks/<id>)
+@app.route("/tasks/<int:task_id>", methods=["PUT"])
+def update_task(task_id):
+   data = request.get_json()
+
+   title = data.get("title")
+   status = data.get("status")
+
+  # at least one field should be provided
+   if not title and not status:
+      return {"error": "Nothing to update. Provide title or status."}, 400
+
+   conn = get_db_connection()
+   cursor = conn.cursor()
+
+   cursor.execute("SELECT id FROM tasks WHERE id = ?", (task_id,))
+   task = cursor.fetchone()
+
+   if not task:
+      conn.close()
+      return {"error": "Task not found"}, 404
+
+  #  prepare dynamic update query
+   updates = []
+   params = []
+
+   if title:
+      updates.append("title = ?")
+      params.append(title)
+
+   if status:
+      updates.append("status = ?")
+      params.append(status)
+
+   params.append(task_id)
+
+   cursor.execute(f"UPDATE tasks SET {', '.join(updates)} WHERE id = ?", params)
+   conn.commit()
+   conn.close()
+
+   return {"message": "Task updated successfully"}, 200
+
+# SQL UPDATE tasks	- update task inside tasks table
+
 if __name__ == "__main__":
   app.run(debug=True)
