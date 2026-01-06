@@ -199,7 +199,29 @@ def update_task(task_id):
 
    return {"message": "Task updated successfully"}, 200
 
-# SQL UPDATE tasks	- update task inside tasks table
+   # SQL UPDATE tasks	- update task inside tasks table
+
+# Delete a task (DELETE /tasks/<id>)
+@app.route("/tasks/<int:task_id>", methods = ["DELETE"])
+def delete_task(task_id):
+   conn = get_db_connection()
+   cursor = conn.cursor()
+
+   # check if task exists
+   cursor.execute("SELECT id FROM tasks WHERE id = ?", (task_id,))
+   task = cursor.fetchone()
+
+   if not task:
+      conn.close()
+      return {"error": "Task not found"}, 404
+
+   # delete task
+   cursor.execute("DELETE FROM tasks WHERE id = ?", (task_id,))
+   conn.commit()
+   conn.close()
+
+   return {"message": "Task deleted successfully"}, 200
+
 
 if __name__ == "__main__":
   app.run(debug=True)
