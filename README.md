@@ -82,16 +82,22 @@ python app.py
 
 Server will start at: http://127.0.0.1:5000
 
-## API Endpoints
+## 📌 API Endpoints
 
-📋 Users
-Method Endpoint Description
-POST /users Create a new user
-GET /users Get all users
+### 👤 Users
 
-📋 Tasks
-Method Endpoint Description
-POST /tasks Create a new task
-GET /tasks Get all tasks
-PUT /tasks/<id> Update task title or status
-DELETE /tasks/<id> Delete a task
+| Method | Endpoint | Description       |
+| ------ | -------- | ----------------- |
+| POST   | `/users` | Create a new user |
+| GET    | `/users` | Get all users     |
+
+---
+
+### 📋 Tasks
+
+| Method | Endpoint      | Description                 |
+| ------ | ------------- | --------------------------- |
+| POST   | `/tasks`      | Create a new task           |
+| GET    | `/tasks`      | Get all tasks               |
+| PUT    | `/tasks/<id>` | Update task title or status |
+| DELETE | `/tasks/<id>` | Delete a task               |
