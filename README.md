@@ -97,7 +97,7 @@ Server will start at: http://127.0.0.1:5000
 
 | Method | Endpoint      | Description                 |
 | ------ | ------------- | --------------------------- |
-| POST   | `/tasks`      | Create a new task           |
+| POST   | `/task`       | Create a new task           |
 | GET    | `/tasks`      | Get all tasks               |
 | PUT    | `/tasks/<id>` | Update task title or status |
 | DELETE | `/tasks/<id>` | Delete a task               |
