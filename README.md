@@ -29,7 +29,7 @@ This project demonstrates core backend development concepts such as **REST APIs,
 
 ## 📂 Project Structure
 
-```text
+```plaintext
 task-manager-api/
 │
 ├── app.py # Flask application and API routes
@@ -44,12 +44,9 @@ task-manager-api/
 │ └── user.py # OOP model classes
 │
 └── README.md
-
----
+```
 
 ## 🔧 Setup & Run Locally
-
-```
 
 ### 1️⃣ Clone the repository
 
