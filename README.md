@@ -29,7 +29,7 @@ This project demonstrates core backend development concepts such as **REST APIs,
 
 ## 📂 Project Structure
 
-````
+```text
 task-manager-api/
 │
 ├── app.py # Flask application and API routes
@@ -49,12 +49,14 @@ task-manager-api/
 
 ## 🔧 Setup & Run Locally
 
+```
+
 ### 1️⃣ Clone the repository
 
 ```bash
 git clone https://github.com/your-username/task-manager-api.git
 cd task-manager-api
-````
+```
 
 ### 2️⃣ Create virtual environment
 
