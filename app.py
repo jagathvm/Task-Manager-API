@@ -12,7 +12,7 @@ create_tables()
 def home():
   return {"message": "Task Manager API is running !"}
 
-# Create User API (POST /users)
+# Create User API (POST /user)
 @app.route('/user', methods=["POST"])
 def create_user():
     data = request.get_json()
@@ -86,7 +86,7 @@ def get_users():
 # row["name"]	- dictionary-like access
 # return {"users": users} -	send JSON response
 
-# Create Task API (POST /tasks)
+# Create Task API (POST /task)
 @app.route("/task", methods=["POST"])
 def create_task():
    data = request.get_json()
