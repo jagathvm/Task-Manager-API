@@ -1,8 +1,11 @@
 import os
 from flask import Flask, request
-from database.db import get_db_connection
+from database.db import get_db_connection, create_tables
 
 app = Flask(__name__)
+
+# Create DB tables on startup (safe due to IF NOT EXISTS)
+create_tables()
 
 # Create Home Route (GET /)
 @app.route('/')
