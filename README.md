@@ -1,8 +1,15 @@
 # Task Management REST API (Python)
 
-A simple **Task Management REST API** built using **Python and Flask**, implementing full CRUD operations for users and tasks with a relational SQL database.
+A **Task Management REST API** built using **Python and Flask**, implementing full CRUD operations for users and tasks with a relational SQL database.
 
-This project demonstrates core backend development concepts such as **REST APIs, Object-Oriented Programming (OOP), SQL databases, and Git version control**.
+This project demonstrates core backend development concepts such as **REST APIs, Object-Oriented Programming (OOP), SQL databases, cloud deployment, and Git version control**.
+
+---
+
+## 🌐 Live API
+
+**Base URL:**
+https://task-manager-api-2wiq.onrender.com
 
 ---
 
@@ -88,7 +95,7 @@ Server will start at: http://127.0.0.1:5000
 
 | Method | Endpoint | Description       |
 | ------ | -------- | ----------------- |
-| POST   | `/users` | Create a new user |
+| POST   | `/user`  | Create a new user |
 | GET    | `/users` | Get all users     |
 
 ---
@@ -101,3 +108,25 @@ Server will start at: http://127.0.0.1:5000
 | GET    | `/tasks`      | Get all tasks               |
 | PUT    | `/tasks/<id>` | Update task title or status |
 | DELETE | `/tasks/<id>` | Delete a task               |
+
+## 🧪 Sample Request (POST /user)
+
+```json
+{
+  "name": "Jagath",
+  "email": "jagath@example.com"
+}
+```
+
+## 🧠 Concepts Covered
+
+- RESTful API design
+- Python functions and OOP
+- SQL CRUD operations
+- Database relationships
+- Cloud deployment considerations
+- Error handling and validation
+- Git-based version control
+- API testing with Postman
+
+---
